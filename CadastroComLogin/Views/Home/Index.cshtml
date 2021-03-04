@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+@model CadastroComLogin.Models.Login
+
+
+<h2>Tela de login</h2>
+
+<div class="container">
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+
+        @Html.ValidationMessageFor(x => x.Usuario)
+        <br />
+        @Html.Label("Usuário")
+        <br />
+        @Html.EditorFor(x => x.Usuario)
+        <br />
+        <br />
+        @Html.ValidationMessageFor(x => x.DataNascimento)
+        <br />
+        @Html.Label("Data de nascimento")
+        <br />
+        @Html.EditorFor(x => x.DataNascimento)
+        <br />
+        <br />
+        @Html.ValidationMessageFor(x => x.Senha)
+        <br />
+        @Html.Label("Senha")
+        <br />
+        @Html.PasswordFor(x => x.Senha)
+        <br />
+        <br />
+        <input type="submit" value="Login" />
+
+    }
+
+</div>
+
+@if (ViewBag.Error != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Error");
+            };
+    </script>
+
+}
+
+@section Scripts{
+
+    @Scripts.Render("~/budles/jqueryval")
+
+}
+

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Cadastrar";
+}
+@model List<CadastroComLogin.Models.Cadastro>
+
+<h2>Usuários cadastrados</h2>
+
+
+@foreach (var cadastro in Model)
+{
+    <ul>
+        <li>@cadastro.NomeCompleto</li>
+        <li>@cadastro.Usuario</li>
+        <li>@cadastro.DataNascimento.ToString("dd/MM/yyyy")</li>
+    </ul>
+    <br />
+}
+
+
+
+
+
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+
+    }

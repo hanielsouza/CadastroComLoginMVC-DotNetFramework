@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+@model CadastroComLogin.Models.Cadastro
+<h2>Tela de cadastro de usuários</h2>
+
+<div class="container">
+    @using (Html.BeginForm("Cadastrar", "Cadastrar", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+
+        @Html.ValidationMessageFor(x => x.NomeCompleto)
+        <br />
+        @Html.Label("Nome completo")
+        <br />
+        @Html.EditorFor(x => x.NomeCompleto)
+        <br />
+        <br />
+        @Html.ValidationMessageFor(x => x.Usuario)
+        <br />
+        @Html.Label("Usuário")
+        <br />
+        @Html.EditorFor(x => x.Usuario)
+        <br />
+        <br />
+        @Html.ValidationMessageFor(x => x.DataNascimento)
+        <br />
+        @Html.Label("Data de nascimento")
+        <br />
+        @Html.EditorFor(x => x.DataNascimento)
+        <br />
+        <br />
+        @Html.ValidationMessageFor(x => x.Senha)
+        <br />
+        @Html.Label("Senha")
+        <br />
+        @Html.PasswordFor(x => x.Senha)
+        <br />
+        <br />
+        @Html.ValidationMessageFor(x => x.ConfirmaçãoSenha)
+        <br />
+        @Html.Label("Confirmação de senha")
+        <br />
+        @Html.PasswordFor(x => x.ConfirmaçãoSenha)
+        <br />
+        <br />
+        <input type="submit" value="Cadastrar" />
+    }
+</div>
+
+@section Scripts{
+
+    @Scripts.Render("~/budles/jqueryval")
+
+}
+
+
